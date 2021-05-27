@@ -1,0 +1,20 @@
+package br.com.easyManager.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.easyManager.model.Procedimento;
+import br.com.easyManager.repository.ProcedimentoRepository;
+
+@RequestMapping("cadastro")
+public class ProcedimentoController {
+	
+	ProcedimentoRepository procedimentoRepository;
+	
+	@PostMapping("/novoProcedimento")
+	public void cadastroProcedimento(@RequestBody Procedimento procedimento) {
+		procedimentoRepository.save(procedimento);
+	}
+	
+}
